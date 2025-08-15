@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NotesView: View {
+    @State private var searchText: String = ""
     var body: some View {
         NavigationStack {
             ZStack {
@@ -16,6 +17,7 @@ struct NotesView: View {
                 }
                 .navigationTitle("Notes")
                 .listStyle(.automatic)
+                .searchable(text: $searchText, prompt: Text("Search Notes"))
                 
                 VStack {
                     Spacer()

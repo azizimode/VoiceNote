@@ -18,6 +18,11 @@ struct NotesView: View {
                 .navigationTitle("Notes")
                 .listStyle(.automatic)
                 .searchable(text: $searchText, prompt: Text("Search Notes"))
+                .toolbar{
+                    NavigationLink(destination: SettingsView()) {
+                        Image(systemName: "gearshape")
+                    }
+                }
                 
                 VStack {
                     Spacer()

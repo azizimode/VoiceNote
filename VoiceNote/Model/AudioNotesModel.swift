@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct NotesModel {
+struct AudioNoteModel: Identifiable {
+    var id: UUID = UUID()
     var title: String
 }

@@ -9,8 +9,8 @@ import Foundation
 import SwiftData
 import AVFoundation
 
-@Model
-class AudioRecorder: NSObject, ObservableObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+@ModelActor
+actor AudioRecorder: NSObject, ObservableObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 //    @Published var recordings : [Recording] = []
 //    @Published var audioLevels: [CGFloat] = Array(repeating: 20, count: 30)
 //    
@@ -20,12 +20,4 @@ class AudioRecorder: NSObject, ObservableObject, AVAudioRecorderDelegate, AVAudi
     var title: String
     var text: String
     var date: Date
-    
-    
-    
-    init(title: String, text: String, date: Date) {
-        self.title = title
-        self.text = text
-        self.date = date
-    }
 }

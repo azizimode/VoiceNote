@@ -12,7 +12,8 @@ import SwiftData
 struct VoiceNoteApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NotesView()
         }
+        .modelContainer(for: AudioNoteModel.self)
     }
 }

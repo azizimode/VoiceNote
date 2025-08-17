@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct VoiceNoteApp: App {
@@ -13,5 +14,6 @@ struct VoiceNoteApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: AudioRecorder.self)
     }
 }

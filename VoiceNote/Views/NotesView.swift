@@ -21,11 +21,11 @@ struct NotesView: View {
         NavigationStack {
             ZStack {
                 List{
-                    Text("Hello, World!")
+                    
                 }
                 .navigationTitle("Notes")
                 .listStyle(.automatic)
-                .searchable(text: $searchText, prompt: Text("Search Notes"))
+//                .searchable(text: $searchText, prompt: Text("Search Notes"))
                 .toolbar{
                     NavigationLink(destination: SettingsView()) {
                         Image(systemName: "gearshape")
@@ -59,6 +59,16 @@ struct NotesView: View {
                     .padding(.bottom, 20)
                 }
             }
+        }
+        .overlay{
+            ContentUnavailableView(label:{
+                Label("No notes found", systemImage: "folder")
+            },description: {
+                Text("Start recording a note by tapping on the microphone icon.")
+            }, actions: {
+    
+            })
+            .offset(y: 10)
         }
     }
 }

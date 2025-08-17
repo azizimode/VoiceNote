@@ -11,6 +11,7 @@ import Combine
 
 struct NotesView: View {
     
+    @Environment(\.modelContext) var context
     @State private var searchText: String = ""
 //    @StateObject private var audioRecorder = AudioNoteModel(title: "lm")
     @State private var isRecording = false

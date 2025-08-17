@@ -14,6 +14,5 @@ struct VoiceNoteApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: AudioRecorder.self)
     }
 }

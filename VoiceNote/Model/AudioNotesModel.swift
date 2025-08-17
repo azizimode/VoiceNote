@@ -6,8 +6,18 @@
 //
 
 import Foundation
+import SwiftData
 
-struct AudioNoteModel: Identifiable {
+@Model
+class AudioNoteModel: Identifiable {
     var id: UUID = UUID()
     var title: String
+    var date: Date
+    var audioURL: URL
+    
+    init(title: String, date: Date , audioURL: URL) {
+        self.title = title
+        self.date = date
+        self.audioURL = audioURL
+    }
 }

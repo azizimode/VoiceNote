@@ -41,7 +41,7 @@ struct NotesView: View {
                 
                 VStack {
                     ContentUnavailableView(label:{
-                        Label("No notes found", systemImage: "folder")
+                        Label("No Notes Found", systemImage: "note.text")
                     },description: {
                         Text("Start recording a note by tapping on the microphone icon.")
                     }, actions: {

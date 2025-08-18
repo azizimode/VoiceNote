@@ -12,7 +12,7 @@ struct SettingsView: View {
         NavigationStack {
             List{
                 
-                Section(header: Text("About")){
+                Section(header: Text("General")){
                     
                     Picker(selection: /*@START_MENU_TOKEN@*/.constant(1)/*@END_MENU_TOKEN@*/, label: Text("Language")) {
                             Text("English").tag(1)

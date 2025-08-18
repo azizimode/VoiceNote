@@ -40,6 +40,15 @@ struct NotesView: View {
 //                }
                 
                 VStack {
+                    ContentUnavailableView(label:{
+                        Label("No notes found", systemImage: "folder")
+                    },description: {
+                        Text("Start recording a note by tapping on the microphone icon.")
+                    }, actions: {
+            
+                    })
+                    .offset(y: 10)
+                    
                     Spacer()
                     HStack {
                         Button{
@@ -60,20 +69,10 @@ struct NotesView: View {
                 }
             }
         }
-        .overlay{
-            ContentUnavailableView(label:{
-                Label("No notes found", systemImage: "folder")
-            },description: {
-                Text("Start recording a note by tapping on the microphone icon.")
-            }, actions: {
-    
-            })
-            .offset(y: 10)
-        }
     }
 }
 #Preview {
-    NotesView()
+        NotesView()
 }
 
 extension Notification.Name {

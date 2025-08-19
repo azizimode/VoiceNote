@@ -21,7 +21,24 @@ struct NotesView: View {
         NavigationStack {
             ZStack {
                 List{
-                    
+                    HStack(spacing: 16){
+                        ZStack {
+                            Image(systemName: "text.document")
+                                .font(.system(size: 24))
+                                .foregroundColor(.primary)
+                            
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(Color.gray.opacity(0.3))
+                                .frame(width: 48, height: 48)
+                            
+                        }
+                        VStack(alignment: .leading){
+                            Text("New Note")
+                                .font(.headline)
+                            Text("August 15, 10:30 AM")
+                                .font(.subheadline)
+                        }
+                    }
                 }
                 .navigationTitle("Notes")
                 .listStyle(.automatic)
@@ -43,7 +60,7 @@ struct NotesView: View {
                     ContentUnavailableView(label:{
                         Label("No Notes Found", systemImage: "note.text")
                     },description: {
-                        Text("Start recording a note by tapping on the microphone icon.")
+                        Text("Start recording your thoughts by tapping on the microphone icon.")
                     }, actions: {
             
                     })

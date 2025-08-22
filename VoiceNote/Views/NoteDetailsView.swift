@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoteView: View {
+struct NoteDetailsView: View {
     @State private var noteText: String = "This is a new note"
     var body: some View {
         NavigationStack {
@@ -32,5 +32,5 @@ struct NoteView: View {
 }
 
 #Preview {
-    NoteView()
+    NoteDetailsView()
 }

@@ -21,51 +21,19 @@ struct NotesView: View {
         NavigationStack {
             ZStack {
                 List{
-                    HStack(spacing: 16){
-                        ZStack {
-                            Image(systemName: "text.document")
-                                .font(.system(size: 24))
-                                .foregroundColor(.primary)
-                            
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.gray.opacity(0.3))
-                                .frame(width: 48, height: 48)
-                            
-                        }
-                        VStack(alignment: .leading){
-                            Text("New Note")
-                                .font(.headline)
-                            Text("August 15, 10:30 AM")
-                                .font(.subheadline)
-                        }
-                    }
+                    NoteCard()
                 }
                 .navigationTitle("Notes")
                 .listStyle(.automatic)
-//                .searchable(text: $searchText, prompt: Text("Search Notes"))
+                
                 .toolbar{
                     NavigationLink(destination: SettingsView()) {
                         Image(systemName: "gearshape")
                     }
                 }
-                
-//                if isRecording {
-//                    AudioWaveformView(audioLevels: audioRecorder.audioLevels)
-//                      .frame(height: 150)
-//                      .padding()
-//                      .transition(.scale)
-//                }
-                
+
                 VStack {
-                    ContentUnavailableView(label:{
-                        Label("No Notes Found", systemImage: "note.text")
-                    },description: {
-                        Text("Start recording your thoughts by tapping on the microphone icon.")
-                    }, actions: {
-            
-                    })
-                    .offset(y: 10)
-                    
+                    EmptyState()
                     Spacer()
                     HStack {
                         Button{
@@ -94,4 +62,39 @@ struct NotesView: View {
 
 extension Notification.Name {
     static let recordVoiceDidFinish = Notification.Name("recordVoiceDidFinish")
+}
+
+struct NoteCard: View {
+    var body: some View {
+        HStack(spacing: 16){
+            ZStack {
+                Image(systemName: "text.document")
+                    .font(.system(size: 24))
+                    .foregroundColor(.primary)
+                
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 48, height: 48)
+                
+            }
+            VStack(alignment: .leading){
+                Text("New Note")
+                    .font(.headline)
+                Text("August 15, 10:30 AM")
+                    .font(.subheadline)
+            }
+        }
+    }
+}
+
+struct EmptyState: View {
+    var body: some View {
+        ContentUnavailableView(label:{
+            Label("No Notes Found", systemImage: "note.text")
+        },description: {
+            Text("Start recording your thoughts by tapping on the microphone icon.")
+        }, actions: {
+            
+        })
+    }
 }
